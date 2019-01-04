@@ -10,11 +10,12 @@
   },
   "devDependencies": {
     "browser-sync": "^2.9.3",
+    "bulma": "^0.7.2",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.0.1",
     "gulp-pug": "^3.0.3",
     "gulp-sass": "^2.0.4",
-    "bulma": "^0.7.2"
+    "vinyl-ftp": "^0.6.1"
   },
   "keywords": [
     "jade",
@@ -22,5 +23,8 @@
     "pug",
     "sass",
     "browsersync"
-  ]
+  ],
+  "dependencies": {
+    "minimist": "latest"
+  }
 }

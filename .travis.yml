@@ -4,4 +4,4 @@ node_js:
 script:
   - npm run build
 after_success:
-  "find build -type f -exec curl --ftp-create-dirs -T {} -u $FTP_USER:$FTP_PASSWORD ftp://volunteer.e-sport.ee/web/volunteer/{} \\;"
+  - gulp deploy --user $FTP_USER --password $FTP_PASSWORD

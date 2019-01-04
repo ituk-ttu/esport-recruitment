@@ -6,6 +6,9 @@ var gulp = require('gulp'),
   pug = require('gulp-pug'),
   prefix = require('gulp-autoprefixer'),
   sass = require('gulp-sass'),
+  ftp = require('vinyl-ftp'),
+  minimist = require('minimist'),
+  args = minimist(process.argv.slice(2)),
   browserSync = require('browser-sync');
 
 /*
@@ -74,6 +77,18 @@ gulp.task('sass', function () {
     .pipe(browserSync.reload({
       stream: true
     }));
+});
+
+gulp.task('deploy', () => {
+  const remotePath = '/web/volunteer/';
+  const conn = ftp.create({
+    host: 'volunteer.e-sport.ee',
+    user: args.user,
+    password: args.password
+  });
+  console.log('FTP connection successful!');
+  gulp.src('build/**/*.*')
+    .pipe(conn.dest(remotePath));
 });
 
 gulp.task('watch', function () {
