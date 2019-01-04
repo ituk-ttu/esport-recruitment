@@ -1,0 +1,65 @@
+extends ../layouts/layout
+
+block content
+    section.hero.is-large.home-hero
+        .hero-body
+            .container.has-text-centered
+                h1.title.has-text-white.is-1
+                    | Software Engineer
+    section.section.top-container-after-hero
+        .container.content
+            p.title.has-text-primary.has-text-centered.is-2 Kirjeldus
+            p.has-text-dark
+                | TalTech e-Spordi otseülekannne on juba pikalt olnud natuke eriline. Lisaks võimekale visuaalide- ning
+                |  kaugjuhtimissüsteemidele kasutame mitmeid integratsioone näiteks mängude tulemuste ning muu mängude
+                |  ja mängjatega seonduva info ülekandes kuvamiseks. Vaata eelmise aasta repositooriumit
+                |  #[a(href="https://github.com/ituk-ttu/esport-2018-winter-stream") siit].
+            p
+                span.has-text-primary.has-text-weight-semibold Panustamise aeg:
+                span  jaanuar kuni aprill
+            p
+                span.has-text-primary.has-text-weight-semibold Meeskond:
+                span  broadcast
+    section.section
+        .container.content
+            p.title.has-text-primary Ülesanded
+            ul
+                li Ülekande visuaalide- ja kaugjuhtimisserveri arendamine
+                li Erinevate graafiliste elementide arendamine
+                li Erinevate REST teenuste integreerimine
+    section.section
+        .container.content
+            p.title.has-text-primary Eeldused kandidaadile
+            ul
+                li HTML-i, CSS-i ja JavaScripti (k.a NodeJS) tundmine
+                li Kogemused REST teenuste kasutamisel
+                li Vähemalt 18 aastat vana
+    section.section
+        .container.content
+            p.title.has-text-primary Kasuks tuleb
+            ul
+                li Varasem kokkupuude WebSocketitega
+                li Varasem kokkupuude erinevate otseülekande programmide (nt. OBS, VMix) ja riistvaraga (nt. Blackmagic ATEM)
+                li Varasem kokkupuude Vue.js-i, SCSS-i ja Pug-iga
+                li Java tundmine
+                li Varasem kokkupuude Spring Boot-iga
+    section.section
+        .container.content
+            p.title.has-text-primary Omalt poolt pakume
+            ul
+                li Head võimalust täiendada oma CV-d
+                li Suurepärast meeskonda erinevatest firmadest pärit arendajatega
+                li Võimalust saada "jalg ukse vahele" Eesti e-Spordi ürituste korraldamises
+                li Vaade Eesti suurima võrgupidude sarja kardinate taha
+    section.section
+        .container.content
+            a(href="https://e-sport-volunteer.typeform.com/to/" + "UiLpZQ").button.is-primary.is-large.is-fullwidth.is-outlined Liitu meiega!
+    section.section.top-container-after-hero
+        .container.content
+            p.title.has-text-primary.is-5 Vajad rohkem infot?
+            p
+                span.has-text-dark Jaagup Kümmel
+                | &nbsp|&nbsp
+                span.has-text-light Broadcast Engineering Lead
+                | &nbsp|&nbsp
+                a(href="mailto:jaagup.kymmel@gmail.com") jaagup.kymmel@gmail.com

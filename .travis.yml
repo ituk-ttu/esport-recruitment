@@ -1,0 +1,7 @@
+language: node_js
+node_js:
+  - "stable"
+script:
+  - npm run build
+after_success:
+  "find build -type f -exec curl --ftp-create-dirs -T {} -u $FTP_USER:$FTP_PASSWORD ftp://volunteer.e-sport.ee/web/volunteer/{} \\;"

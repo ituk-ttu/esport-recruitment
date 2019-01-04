@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700&subset=latin-ext');
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.navbar {
+  .navbar-brand {
+    justify-content:center;
+    flex-grow: 1;
+  }
+}
+
+.home-hero {
+  background: url("../images/bg.jpg") no-repeat center;
+  background-size: cover;
+  clip-path: polygon(100% calc(100% - 60px), 40px calc(100% - 60px), 40px calc(100% - 40px), 20px calc(100% - 40px), 20px 100%, 0 100%, 0 0, 100% 0);
+  padding-bottom: 60px;
+}
+
+.top-container-after-hero {
+  margin-top: -20px;
+}
+
+.main-footer {
+  clip-path: polygon(calc(100% - 20px) 20px, calc(100% - 20px) 0, 100% 0, 100% 100%, 0 100%, 0 40px, calc(100% - 40px) 40px, calc(100% - 40px) 20px);
+  padding-top: 6rem;
+  padding-bottom: calc(6rem - 40px);
+}
+
+.full-height-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .card-footer {
+    margin-top: auto;
+  }
+}
+
+.team-tag {
+  margin-bottom: 20px;
+}
+.navbar-brand {
+  svg {
+    height: $navbar-height - $navbar-padding-vertical - $navbar-padding-vertical;
+  }
+}

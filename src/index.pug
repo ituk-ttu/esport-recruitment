@@ -1,0 +1,32 @@
+extends layouts/layout
+include mixins/position-card
+
+block content
+    section.hero.is-large.home-hero
+        .hero-body
+            .container.has-text-centered
+                h1.title.has-text-white.is-1
+                    | Liitu TalTech e-Spordi meeskonnaga!
+    section.section.top-container-after-hero
+        .container
+            h1.title.has-text-centered.has-text-primary.is-2 Miks liituda?
+            p.has-text-dark
+                | Why not?
+    section.section
+        .container
+            h1.title.has-text-centered.has-text-primary.is-2 Avatud positsioonid
+            .columns.is-multiline.is-centered
+                +position-card("Software Engineer", "TalTech e-Spordi otseülekannne on juba pikalt olnud" +
+                " natuke eriline. Lisaks võimekale visuaalide- ning kaugjuhtimissüsteemidele kasutame mitmeid" +
+                " integratsioone näiteks mängude tulemuste ning muu mängude ja mängjatega seonduva info ülekandes" +
+                " kuvamiseks.", "broadcast", "software-engineer", "UiLpZQ")
+                +position-card("CS:GO Observer", "Observeri ülesandeks on pakkuda otseülekande vaatajatele" +
+                " erinevaid vaatenurki mängust ning näidata just kõige huvitavamaid palasid.",
+                "broadcast", "csgo-observer", "g5PRP6")
+                +position-card("CS:GO Caster", "Otsime meeskonda talendikaid ja värskeid castereid kes lisaks CS:GO" +
+                " tundmisele tunneksid ennast mugavalt ka kaamera ees", "broadcast", "csgo-caster", "odUTyU")
+                +position-card("CS:GO Analyst", "Otsime inimest kes suudab mängu vaadates põhjendada ära mängjate ja" +
+                " meeskondade poolt tehtud otsused, tuua välja nende head ja vead ning analüüsida üldist mängu käiku",
+                "broadcast", "csgo-analyst", "zqsLue")
+                +position-card("Audio Engineer", "Otsime meeskonda helitehnikut eesmärgiga tagada laitmatu heli" +
+                " otseülekandes.", "broadcast", "audio-engineer", "qgrVxb")
