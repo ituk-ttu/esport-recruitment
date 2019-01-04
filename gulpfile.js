@@ -1,5 +1,5 @@
 /*global require*/
-"use strict";
+'use strict'
 
 var gulp = require('gulp'),
   path = require('path'),
@@ -9,7 +9,7 @@ var gulp = require('gulp'),
   ftp = require('vinyl-ftp'),
   minimist = require('minimist'),
   args = minimist(process.argv.slice(2)),
-  browserSync = require('browser-sync');
+  browserSync = require('browser-sync')
 
 /*
  * Directories here
@@ -20,39 +20,39 @@ var paths = {
   sass: 'sass/',
   css: 'css/',
   images: 'images/'
-};
+}
 
 gulp.task('pug', function () {
   return gulp.src(paths.source + '*.pug')
     .pipe(pug())
     .on('error', function (err) {
-      process.stderr.write(err.message + '\n');
-      this.emit('end');
+      process.stderr.write(err.message + '\n')
+      this.emit('end')
     })
-    .pipe(gulp.dest(paths.build));
-});
+    .pipe(gulp.dest(paths.build))
+})
 
 gulp.task('positions-pug', function () {
   return gulp.src(paths.source + 'positions/*.pug')
     .pipe(pug())
     .on('error', function (err) {
-      process.stderr.write(err.message + '\n');
-      this.emit('end');
+      process.stderr.write(err.message + '\n')
+      this.emit('end')
     })
-    .pipe(gulp.dest(paths.build + "positions/"));
-});
+    .pipe(gulp.dest(paths.build + 'positions/'))
+})
 
 gulp.task('images', function () {
-  return gulp.src(paths.source + paths.images + "**/*.*")
+  return gulp.src(paths.source + paths.images + '**/*.*')
     .pipe(gulp.dest(paths.build + paths.images))
     .pipe(browserSync.reload({
       stream: true
-    }));
+    }))
 })
 
 gulp.task('rebuild', ['pug', 'positions-pug', 'sass', 'images'], function () {
-  browserSync.reload();
-});
+  browserSync.reload()
+})
 
 gulp.task('browser-sync', ['sass', 'pug', 'positions-pug', 'images'], function () {
   browserSync({
@@ -60,8 +60,8 @@ gulp.task('browser-sync', ['sass', 'pug', 'positions-pug', 'images'], function (
       baseDir: paths.build
     },
     notify: true
-  });
-});
+  })
+})
 
 gulp.task('sass', function () {
   return gulp.src(paths.source + paths.sass + 'style.scss')
@@ -76,28 +76,27 @@ gulp.task('sass', function () {
     .pipe(gulp.dest(paths.build + paths.css))
     .pipe(browserSync.reload({
       stream: true
-    }));
-});
+    }))
+})
 
 gulp.task('deploy', () => {
-  const remotePath = '/web/volunteer/';
+  const remotePath = '/web/volunteer/'
   const conn = ftp.create({
     host: 'volunteer.e-sport.ee',
     user: args.user,
     password: args.password
-  });
-  console.log('FTP connection successful!');
-  gulp.src('build/**/*.*')
-    .pipe(conn.dest(remotePath));
-});
+  })
+  console.log('FTP connection successful!')
+  gulp.src(paths.build + '**/*.*', {base: './build/'})
+    .pipe(conn.dest(remotePath))
+})
 
 gulp.task('watch', function () {
-  gulp.watch(paths.source + paths.sass + '**/*.scss', ['sass']);
-  gulp.watch(paths.source + '**/*.pug', ['rebuild']);
-  gulp.watch(paths.source + paths.images + '**/*.*', ['images']);
-});
+  gulp.watch(paths.source + paths.sass + '**/*.scss', ['sass'])
+  gulp.watch(paths.source + '**/*.pug', ['rebuild'])
+  gulp.watch(paths.source + paths.images + '**/*.*', ['images'])
+})
 
-gulp.task('build', ['sass', 'pug', 'positions-pug', 'images']);
+gulp.task('build', ['sass', 'pug', 'positions-pug', 'images'])
 
-
-gulp.task('default', ['browser-sync', 'watch']);
+gulp.task('default', ['browser-sync', 'watch'])
