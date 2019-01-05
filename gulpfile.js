@@ -9,6 +9,7 @@ var gulp = require('gulp'),
   ftp = require('vinyl-ftp'),
   minimist = require('minimist'),
   args = minimist(process.argv.slice(2)),
+  gutil = require('gulp-util'),
   browserSync = require('browser-sync')
 
 /*
@@ -84,7 +85,8 @@ gulp.task('deploy', () => {
   const conn = ftp.create({
     host: 'volunteer.e-sport.ee',
     user: args.user,
-    password: args.password
+    password: args.password,
+    log: gutil.log
   })
   console.log('Connected to ftp.')
   console.log('CWD: ' + process.cwd())

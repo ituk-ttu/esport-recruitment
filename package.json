@@ -15,7 +15,8 @@
     "gulp-autoprefixer": "^3.0.1",
     "gulp-pug": "^3.0.3",
     "gulp-sass": "^2.0.4",
-    "vinyl-ftp": "^0.6.1"
+    "vinyl-ftp": "^0.6.1",
+    "gulp-util": "latest"
   },
   "keywords": [
     "jade",
