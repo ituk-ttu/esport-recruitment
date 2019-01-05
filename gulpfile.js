@@ -15,8 +15,8 @@ var gulp = require('gulp'),
  * Directories here
  */
 var paths = {
-  source: './src/',
-  build: './build/',
+  source: 'src/',
+  build: 'build/',
   sass: 'sass/',
   css: 'css/',
   images: 'images/'
@@ -87,7 +87,7 @@ gulp.task('deploy', () => {
     password: args.password
   })
   console.log('Connected to ftp')
-  return gulp.src(paths.build + '**/*.*', {base: './build', buffer: false})
+  return gulp.src(paths.build + '**/*.*', {base: 'build', buffer: false})
     .pipe(conn.dest(remotePath))
 })
 
