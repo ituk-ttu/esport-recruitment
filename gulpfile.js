@@ -86,8 +86,8 @@ gulp.task('deploy', () => {
     user: args.user,
     password: args.password
   })
-  console.log('FTP connection successful!')
-  gulp.src(paths.build + '**/*.*', {base: './build'})
+  console.log('Connected to ' + conn.host + " as " + conn.user)
+  return gulp.src(paths.build + '**/*.*', {base: './build'})
     .pipe(conn.dest(remotePath))
 })
 
