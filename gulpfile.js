@@ -86,7 +86,9 @@ gulp.task('deploy', () => {
     host: 'sftp://e-sport.ee',
     user: args.user,
     password: args.password,
-    log: gutil.log
+    log: gutil.log,
+    port: 22,
+    secure: true
   })
   console.log('Connected to ftp.')
   console.log('CWD: ' + process.cwd())
