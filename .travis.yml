@@ -12,4 +12,4 @@ branches:
 script:
   - npm run build
 after_success:
-  - sshpass -p $FTP_PASSWORD scp -r $FTP_USER@e-sport.ee:web/volunteer/ build/;
+  - find build -type f -exec curl -u --insecure $FTP_USER:$FTP_PASSWORD --ftp-create-dirs -T {} sftp://e-sport.ee/web/volunteer/{} \;
