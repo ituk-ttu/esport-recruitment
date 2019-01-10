@@ -3,9 +3,10 @@ addons:
   apt:
     packages:
     - sshpass
+dist: trusty
+sudo: false
 node_js:
   - "stable"
-dist: precise
 branches:
   only:
   - master
