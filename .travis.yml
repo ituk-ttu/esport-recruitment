@@ -1,4 +1,8 @@
 language: node_js
+addons:
+  apt:
+    packages:
+    - sshpass
 node_js:
   - "stable"
 dist: trusty
@@ -8,4 +12,4 @@ branches:
 script:
   - npm run build
 after_success:
-  - find build -type f -exec curl -u $FTP_USER:$FTP_PASSWORD --ftp-create-dirs -T {} sftp://e-sport.ee/web/volunteer/{} \;
+  - sshpass -p $FTP_PASSWORD scp -r $FTP_USER@e-sport.ee:web/volunteer/ build/;
