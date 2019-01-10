@@ -2,7 +2,7 @@ language: node_js
 sudo: false
 os: windows
 node_js:
-  - "lts/*"
+  - "node/8.9.4/x64"
 branches:
   only:
   - master
