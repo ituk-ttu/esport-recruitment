@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "stable"
+  - "node/8.9.4/x64"
 os: windows
 branches:
   only:
