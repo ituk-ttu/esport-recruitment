@@ -1,7 +1,11 @@
 language: node_js
+addons:
+  apt:
+    packages:
+    - sshpass
 node_js:
-  - "node/8.9.4/x64"
-os: windows
+  - "stable"
+dist: precise
 branches:
   only:
   - master
