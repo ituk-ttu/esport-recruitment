@@ -1,12 +1,10 @@
 language: node_js
-sudo: false
-os: windows
 node_js:
-  - "node/8.9.4/x64"
+  - "stable"
 branches:
   only:
   - master
 script:
   - npm run build
 after_success:
-  - gulp deploy --user $FTP_USER --password $FTP_PASSWORD
+  - find build -type f -exec curl --verbose --progress-bar --ipv4 --connect-timeout 8 --max-time 120 --retry 128 --ftp-ssl --disable-epsv --ftp-pasv -u $FTP_USER:$FTP_PASSWORD --ftp-create-dirs -T {} ftp://e-sport.ee/web/volunteer/{} \;
