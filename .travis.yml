@@ -3,8 +3,9 @@ addons:
   apt:
     packages:
     - sshpass
+    - curl
+sudo: true
 dist: trusty
-sudo: false
 node_js:
   - "stable"
 branches:
