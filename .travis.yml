@@ -7,4 +7,4 @@ branches:
 script:
   - npm run build
 after_success:
-  - find build -type f -exec curl --verbose --progress-bar --ipv4 --connect-timeout 8 --max-time 120 --retry 128 --ftp-ssl --disable-epsv --ftp-pasv -u $FTP_USER:$FTP_PASSWORD --ftp-create-dirs -T {} ftp://e-sport.ee/web/volunteer/{} \;
+  - find build -type f -exec curl --insecure --verbose --progress-bar --ipv4 --connect-timeout 8 --max-time 120 --retry 128 --ftp-ssl --disable-epsv --ftp-pasv -u $FTP_USER:$FTP_PASSWORD --ftp-create-dirs -T {} ftp://e-sport.ee/web/volunteer/{} \;
