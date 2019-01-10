@@ -83,14 +83,14 @@ gulp.task('sass', function () {
 gulp.task('deploy', () => {
   const remotePath = '/web/volunteer/'
   const conn = ftp.create({
-    host: 'volunteer.e-sport.ee',
+    host: 'sftp://e-sport.ee',
     user: args.user,
     password: args.password,
     log: gutil.log
   })
   console.log('Connected to ftp.')
   console.log('CWD: ' + process.cwd())
-  return gulp.src(paths.build + '**/*.*', {buffer: false})
+  return gulp.src(paths.build + '**/*.*', {base: 'build/'})
     .pipe(conn.dest(remotePath))
 })
 
