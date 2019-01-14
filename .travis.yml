@@ -2,8 +2,8 @@ language: node_js
 addons:
   apt:
     packages:
+    - rsync
     - sshpass
-    - curl
 sudo: true
 dist: trusty
 node_js:
@@ -14,4 +14,4 @@ branches:
 script:
   - npm run build
 after_success:
-  - find build -type f -exec curl --insecure -u $FTP_USER:$FTP_PASSWORD --ftp-create-dirs -T {} sftp://e-sport.ee/web/volunteer/{} \;
+  - rsync -ratlz --rsh="sshpass -p $FTP_PASSWORD ssh -o StrictHostKeyChecking=no -l $FTP_USER" build e-sport.ee/web/volunteer:web/volunteer
