@@ -14,4 +14,4 @@ branches:
 script:
   - npm run build
 after_success:
-  - rsync -ratlz --rsh="sshpass -p $FTP_PASSWORD ssh -o StrictHostKeyChecking=no -l $FTP_USER" e-sport.ee/web/volunteer:web/volunteer build
+  - rsync -ratlz --rsh="sshpass -p $FTP_PASSWORD ssh -o StrictHostKeyChecking=no -l $FTP_USER" ~/build $FTP_USER@e-sport.ee:web/volunteer
