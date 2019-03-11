@@ -1,7 +1,9 @@
-mixin position-card(title, description, team, subPage, form)
+mixin position-card(title, description, team, subPage, form, isDisabled)
     .column.is-one-quarter-fullhd.is-one-third-desktop.is-half-tablet.is-full-mobile
-        .card.full-height-card
+        .card.full-height-card(class={"is-inactive": isDisabled})
             .card-content
+                if isDisabled
+                    span.is-size-7.has-text-primary Kandideerimine on lõppenud!
                 p.title.has-text-dark
                     | #{title}
                 span.tag.team-tag #{team}
@@ -9,4 +11,7 @@ mixin position-card(title, description, team, subPage, form)
                     | #{description}
             footer.card-footer
                 a(href="positions/" + subPage + ".html").card-footer-item Loe rohkem
-                a(href="https://e-sport-volunteer.typeform.com/to/" + form).card-footer-item Liitu
+                if isDisabled
+                    span.is-static.is-blocked.card-footer-item.is-disabled Liitu
+                else
+                    a(href="https://e-sport-volunteer.typeform.com/to/" + form).card-footer-item Liitu

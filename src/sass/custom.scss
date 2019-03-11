@@ -44,3 +44,11 @@ body {
     height: $navbar-height - $navbar-padding-vertical - $navbar-padding-vertical;
   }
 }
+
+.is-blocked {
+  cursor: not-allowed;
+}
+
+.is-inactive {
+  opacity: 0.6;
+}
